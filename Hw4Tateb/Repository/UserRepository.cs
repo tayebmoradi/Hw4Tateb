@@ -1,8 +1,12 @@
-﻿using Hw4Tateb.DataBase;
+﻿using CsvHelper;
+using Hw4Tateb.DataBase;
 using Hw4Tateb.Entity;
 using Hw4Tateb.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +41,17 @@ namespace Hw4Tateb.Repository
 
         public List<User> GetUsers()
         {
-            throw new NotImplementedException();
+            string filePatch = PathFile.PathFileDataBase();
+            using (var reader = new StreamReader(filePatch))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var records = csv.GetRecords<User>();
+                if (records != null)
+                {
+                    return records.ToList();
+                }
+                else return null;
+            }
         }
 
         public bool UpdateUser(User user)
