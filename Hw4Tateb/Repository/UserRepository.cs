@@ -42,7 +42,27 @@ namespace Hw4Tateb.Repository
 
         public bool UpdateUser(User user)
         {
-            throw new NotImplementedException();
+            var users = GetUsers();
+            var search = from a in users
+                         where a.Id == user.Id
+                         select a.Id;
+            if (search != null)
+            {
+                List<User> Tepmlist = new List<User>();
+                foreach (var item in users)
+                {
+                    if(item.Id != user.Id)
+                    { 
+                        Tepmlist.Add(item);
+                    }
+                    else {
+                        Tepmlist.Add(user);
+                    }
+                }
+                SaveFile.SaveOnCsv(Tepmlist);   
+                return true;
+            }
+            return false;
         }
     }
 }
