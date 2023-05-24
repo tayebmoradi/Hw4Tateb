@@ -1,6 +1,7 @@
 ﻿using Hw4Tateb.Entity;
 using Hw4Tateb.Repository;
 using Hw4Tateb.Services;
+using Hw4Tateb.Services.ErrorHandeling;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +60,17 @@ namespace Hw4Tateb
                         }
                         else
                         {
-                            Console.WriteLine("Mobile number must be 11 digits");
+                            try
+                            {
+                                throw new PhoneNumberExeption();
+                                Console.WriteLine("Press the any key to return to the menu");
+                                Console.ReadKey();
+                            }
+                            catch (Exception e)
+                            {
+
+                                Console.WriteLine(e.Message);
+                            }
                         }
                     }
                     else if (UserItem == "2")
@@ -78,6 +89,7 @@ namespace Hw4Tateb
                         string PhoneNumber = Console.ReadLine();
 
                         Console.WriteLine("Enter your Dateofbirth");
+                        Console.WriteLine("sample Code : 5/24/2023 4:07:10 PM");
                         string Dateofbirth = Console.ReadLine();
                         Console.WriteLine("Enter your NationalCode");
                         string NationalCode = Console.ReadLine();
@@ -112,12 +124,32 @@ namespace Hw4Tateb
                     }
                     else
                     {
-                        Console.WriteLine("The number you selected does not exist in the menu");
+                        try
+                        {
+                            throw new MenuExeption();
+                            Console.WriteLine("Press the any key to return to the menu");
+                            Console.ReadKey();
+                        }
+                        catch (Exception e)
+                        {
+
+                            Console.WriteLine(e.Message);
+                        }
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Please enter a number");
+                    try
+                    {
+                        throw new NumberExeption();
+                        Console.WriteLine("Press the any key to return to the menu");
+                        Console.ReadKey();
+                    }
+                    catch (Exception e)
+                    {
+
+                        Console.WriteLine(e.Message);
+                    }
                 }
             }
 
