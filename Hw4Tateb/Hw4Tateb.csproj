@@ -76,6 +76,7 @@
     <Compile Include="Services\IUser.cs" />
     <Compile Include="Services\Menu.cs" />
     <Compile Include="Services\SaveFile.cs" />
+    <Compile Include="Services\ShowUsers.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
