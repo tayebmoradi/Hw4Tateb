@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hw4Tateb", "Hw4Tateb\Hw4Tateb.csproj", "{EAC1DECC-7B68-4440-8DD5-9FDB0063F152}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EAC1DECC-7B68-4440-8DD5-9FDB0063F152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAC1DECC-7B68-4440-8DD5-9FDB0063F152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAC1DECC-7B68-4440-8DD5-9FDB0063F152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAC1DECC-7B68-4440-8DD5-9FDB0063F152}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42CE1D97-7880-4BB1-92E3-77577F7E7BA7}
+	EndGlobalSection
+EndGlobal
