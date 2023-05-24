@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace Hw4Tateb.DataBase
 {
 
-    public class PathFile
+    public static class PathFile
     {
-        private string workingDirectory;
-        private string projectDirectory;
-        public string PathFileDataBase()
+        private static string workingDirectory;
+        private static string projectDirectory;
+        public static string PathFileDataBase()
         {
             workingDirectory = Environment.CurrentDirectory;
             projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
