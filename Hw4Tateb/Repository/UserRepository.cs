@@ -36,7 +36,22 @@ namespace Hw4Tateb.Repository
 
         public bool DeleteUser(User user)
         {
-            throw new NotImplementedException();
+            var users = GetUsers();
+            var serarchuser = from a in users
+                              where a.Id == user.Id
+                              select a.Id;
+            if (serarchuser != null)
+            {
+                List<User> tempUsers = new List<User>();
+                foreach (User item in users)
+                {
+                    if (item.Id != user.Id)
+                        tempUsers.Add(item);
+                }
+                SaveFile.SaveOnCsv(tempUsers);
+                return true;
+            }
+            return false;
         }
 
         public List<User> GetUsers()
