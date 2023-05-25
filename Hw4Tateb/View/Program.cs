@@ -2,6 +2,7 @@
 using Hw4Tateb.Repository;
 using Hw4Tateb.Services;
 using Hw4Tateb.Services.ErrorHandeling;
+using Hw4Tateb.Services.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,38 +41,47 @@ namespace Hw4Tateb
                         string Name = Console.ReadLine();
 
                         Console.WriteLine("Enter your PhoneNumber");
-                        string PhoneNumber = Console.ReadLine();
 
-                        Console.WriteLine("Enter your Dateofbirth");
-                        Console.WriteLine("sample Code : 5/24/2023 4:07:10 PM");
-                        string Dateofbirth = Console.ReadLine();
-
-                        if (PhoneNumber.Length <= 11)
+                        while (true)
                         {
-                            user.Id = Count;
-                            user.PhoneNumber = PhoneNumber;
-                            user.DateOfBirth = Dateofbirth;
-                            user.FullName = Name;
-                            user.NationalCode = random.Next(100).ToString();
-                            user.CreatedDate = DateTime.Now.ToString();
-                            userRepository.AddUser(user);
-                            Console.WriteLine("User added successfully");
+                            string PhoneNumber = Console.ReadLine();
+                            if (ValidationPhone.IsValidPhoneNumber(PhoneNumber))
+                            {
+                                user.PhoneNumber = PhoneNumber;
+                                break;
+                            }
+                            else
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Mobile is invalid try again:");
+                            }
+
+                        }
+                        Console.WriteLine("Enter your Dateofbirth");
+                        Console.WriteLine("sample Code : 5/24/2023");
+                        string Dateofbirth = Console.ReadLine();
+                        user.Id = Count;
+
+                        user.DateOfBirth = Dateofbirth;
+                        user.FullName = Name;
+                        user.NationalCode = random.Next(100).ToString();
+                        user.CreatedDate = DateTime.Now.ToString();
+                        userRepository.AddUser(user);
+                        Console.WriteLine("User added successfully");
+                        Console.ReadKey();
+
+                        try
+                        {
+                            throw new PhoneNumberExeption();
+                            Console.WriteLine("Press the any key to return to the menu");
                             Console.ReadKey();
                         }
-                        else
+                        catch (Exception e)
                         {
-                            try
-                            {
-                                throw new PhoneNumberExeption();
-                                Console.WriteLine("Press the any key to return to the menu");
-                                Console.ReadKey();
-                            }
-                            catch (Exception e)
-                            {
 
-                                Console.WriteLine(e.Message);
-                            }
+                            Console.WriteLine(e.Message);
                         }
+
                     }
                     else if (UserItem == "2")
                     {
