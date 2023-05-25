@@ -13,14 +13,10 @@ namespace Hw4Tateb.Services
 {
     public class SaveFile
     {
-       
-        
         public static bool SaveOnCsv(List<User> users)
         {
-           
             try
             {
-
                 string filePatch = PathFile.PathFileDataBase();
                 using (var writer = new StreamWriter(filePatch))
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))

@@ -58,11 +58,31 @@ namespace Hw4Tateb
 
                         }
                         Console.WriteLine("Enter your Dateofbirth");
-                        Console.WriteLine("sample Code : 5/24/2023");
-                        string Dateofbirth = Console.ReadLine();
+                        Console.WriteLine("sample Code : 2023/02/03");
+                        while(true){
+
+                            string Dateofbirth = Console.ReadLine();
+
+                            if (Convert.ToDateTime(Dateofbirth) > DateTime.Now)
+                            {
+                                Console.WriteLine("Enter the correct date");
+                                Console.WriteLine("Enter your Dateofbirth");
+
+
+                            }
+                            else
+                            {
+                                user.DateOfBirth = Dateofbirth;
+                                break;
+
+                            }
+                        }
+
+
+
                         user.Id = Count;
 
-                        user.DateOfBirth = Dateofbirth;
+
                         user.FullName = Name;
                         user.NationalCode = random.Next(100).ToString();
                         user.CreatedDate = DateTime.Now.ToString();
@@ -99,8 +119,10 @@ namespace Hw4Tateb
                         string PhoneNumber = Console.ReadLine();
 
                         Console.WriteLine("Enter your Dateofbirth");
-                        Console.WriteLine("sample Code : 5/24/2023 4:07:10 PM");
+                        Console.WriteLine("sample Code : 2023/02/03");
                         string Dateofbirth = Console.ReadLine();
+
+
                         Console.WriteLine("Enter your NationalCode");
                         string NationalCode = Console.ReadLine();
                         User user1 = new User() { Id = Id, FullName = Name, NationalCode = NationalCode, PhoneNumber = PhoneNumber, DateOfBirth = Dateofbirth, CreatedDate = DateTime.Now.ToString() };
