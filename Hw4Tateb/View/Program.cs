@@ -81,8 +81,6 @@ namespace Hw4Tateb
 
 
                         user.Id = Count;
-
-
                         user.FullName = Name;
                         user.NationalCode = random.Next(100).ToString();
                         user.CreatedDate = DateTime.Now.ToString();
